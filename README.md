@@ -155,30 +155,31 @@ project/
 
 ### Landing Page
 
-*(Add screenshot here)*
+<img width="1916" height="964" alt="Screenshot 2026-04-27 170635" src="https://github.com/user-attachments/assets/0d1a8bb0-1b6d-4b8d-9030-bfe0c0ab253f" />
 
 ### Login & OTP Verification
+<img width="821" height="405" alt="image" src="https://github.com/user-attachments/assets/25ec39e5-ab61-4664-b95d-6f1e4cd0dd8a" />
 
-*(Add screenshot here)*
+<img width="1908" height="960" alt="Screenshot 2026-04-27 171036" src="https://github.com/user-attachments/assets/2962bffb-067c-4b16-8f3b-bae54024bf7a" />
+
 
 ### Face Sketch Construction
 
-*(Add screenshot here)*
+<img width="1914" height="954" alt="Screenshot 2026-04-27 172749" src="https://github.com/user-attachments/assets/e8674ad2-261b-4a74-a0a6-06080d6954f0" />
 
 ### Upload Sketch
-
-*(Add screenshot here)*
+<img width="1915" height="962" alt="Screenshot 2026-04-27 173353" src="https://github.com/user-attachments/assets/d40a4cd8-3e08-4ff7-8542-5dfad7f12852" />
 
 ### Match Result
+<img width="1894" height="960" alt="Screenshot 2026-04-27 174032" src="https://github.com/user-attachments/assets/c90087dc-9cd8-4214-9938-9dd8891a501c" />
 
-*(Add screenshot here)*
 
 ### No Match Found
 
-*(Add screenshot here)*
+<img width="1906" height="950" alt="Screenshot 2026-04-27 173441" src="https://github.com/user-attachments/assets/ee008a1a-350c-4796-8b9c-292f8f8b4ca0" />
+
 
 ---
-
 ## Future Enhancements
 
 - Integrate CNN-based face recognition models.
