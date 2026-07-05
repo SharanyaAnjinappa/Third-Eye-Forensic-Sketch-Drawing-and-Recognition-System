@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Match Results</title>
+
+<!-- ICON LIBRARY -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #021c3a, #000814);
+    color: white;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.header h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.header-line {
+    width: 320px;
+    height: 2px;
+    margin: 10px auto;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+}
+
+/* TOP */
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    margin-top: 50px;
+}
+
+/* CARD */
+.card {
+    background: rgba(15, 30, 55, 0.9);
+    padding: 20px;
+    border-radius: 18px;
+    width: 260px;
+    box-shadow: 0 0 30px rgba(59,130,246,0.3);
+    border: 1px solid rgba(59,130,246,0.2);
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6ea8ff;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* SCORE */
+.score {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 6px solid #3b82f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(59,130,246,0.7);
+}
+
+.score h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.score span {
+    font-size: 12px;
+    color: #9bbcff;
+}
+
+/* DETAILS */
+.details {
+    margin: 50px auto;
+    width: 75%;
+    background: rgba(15, 30, 55, 0.9);
+    padding: 30px;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 50px;
+    box-shadow: 0 0 30px rgba(59,130,246,0.25);
+    border: 1px solid rgba(59,130,246,0.2);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.label {
+    color: #6ea8ff;
+}
+
+/* STATUS */
+.status {
+    background: #22c55e;
+    padding: 4px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+/* BUTTON */
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 30px auto 50px;
+    padding: 14px 35px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: white;
+    text-decoration: none;
+    width: fit-content;
+    box-shadow: 0 0 25px rgba(59,130,246,0.6);
+}
+</style>
+
+</head>
+<body>
+<div class="header">
+    <h1>
+        <i data-lucide="crosshair"></i>
+        Match Results
+    </h1>
+    <div class="header-line"></div>
+</div>
+<div class="top">
+    <div class="card">
+        <div class="card-title">
+            <i data-lucide="edit"></i>
+            Uploaded Sketch
+        </div>
+        <img src="{{ url_for('static', filename='uploads/' + result.sketch_path) }}">
+    </div>
+    <div class="score">
+        <h2>{{ (result.similarity * 100)|round(0) }}%</h2>
+        <span>Match Score</span>
+    </div>
+    <div class="card">
+        <div class="card-title">
+            <i data-lucide="image"></i>
+            Best Matching Photo
+        </div>
+        <img src="{{ url_for('static', filename='photos/' + result.photo_path) }}">
+    </div>
+</div>
+<div class="details">
+    <div class="row"><i data-lucide="user"></i> <span class="label">Name:</span> {{ result.details.name }}</div>
+    <div class="row"><i data-lucide="briefcase"></i> <span class="label">Crime History:</span> {{ result.details.crime_history }}</div>
+    <div class="row"><i data-lucide="calendar"></i> <span class="label">Age:</span> {{ result.details.age }}</div>
+    <div class="row"><i data-lucide="map-pin"></i> <span class="label">Last Seen:</span> {{ result.details.last_seen }}</div>
+    <div class="row"><i data-lucide="calendar-days"></i> <span class="label">DOB:</span> {{ result.details.dob }}</div>
+    <div class="row"><i data-lucide="file-text"></i> <span class="label">Case ID:</span> {{ result.details.case_id }}</div>
+    <div class="row"><i data-lucide="home"></i> <span class="label">Address:</span> {{ result.details.address }}</div>
+    <div class="row"><i data-lucide="bar-chart"></i> <span class="label">Similarity:</span> {{ result.similarity }}</div>
+    <div class="row"><i data-lucide="users"></i> <span class="label">Gender:</span> {{ result.details.gender }}</div>
+    <div class="row">
+        <i data-lucide="shield-check"></i>
+        <span class="label">Status:</span>
+        <span class="status">SIMILAR</span>
+    </div>
+</div>
+<a href="/upload" class="btn">
+    <i data-lucide="upload"></i>
+    Upload Another Sketch
+</a>
+<script>
+lucide.createIcons();
+</script>
+</body>
+</html>

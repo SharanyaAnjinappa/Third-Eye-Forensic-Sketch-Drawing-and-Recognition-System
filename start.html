@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forensic Face Tool</title>
+
+<style>
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #001f3f 0%, #000814 100%);
+    color: white;
+}
+
+/* 🔥 MAIN CARD */
+.card {
+    width: 700px;
+    padding: 60px 40px;
+    border-radius: 25px;
+    text-align: center;
+
+    background: rgba(20, 30, 50, 0.6);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(100,150,255,0.2);
+
+    box-shadow:
+        0 0 80px rgba(0,140,255,0.15),
+        inset 0 0 40px rgba(0,140,255,0.05);
+}
+
+/* 🔵 EYE ICON */
+.eye {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid rgba(80,140,255,0.4);
+
+    box-shadow:
+        0 0 40px rgba(0,140,255,0.4),
+        inset 0 0 20px rgba(0,140,255,0.2);
+
+    font-size: 36px;
+    color: #4da3ff;
+}
+
+/* TITLE */
+h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* SUBTITLE */
+.subtitle {
+    letter-spacing: 3px;
+    color: #8fb3ff;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+/* SMALL LINE */
+.line {
+    width: 120px;
+    height: 2px;
+    background: rgba(80,140,255,0.4);
+    margin: 20px auto 35px;
+    box-shadow: 0 0 10px rgba(80,140,255,0.6);
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn {
+    padding: 14px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+
+    box-shadow: 0 0 20px rgba(59,130,246,0.5);
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(59,130,246,0.9);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 40px;
+    font-size: 11px;
+    color: #5c6b8a;
+    letter-spacing: 1px;
+}
+
+</style>
+</head>
+<body>
+<div class="card">
+    <div class="eye">👁</div>
+    <h1>Forensic Face Tool</h1>
+    <div class="subtitle">
+        FACIAL SKETCH & RECOGNITION SYSTEM
+    </div>
+    <div class="line"></div>
+    <div class="buttons">
+        <a href="/create-sketch" class="btn">✏ Create Sketch</a>
+        <a href="/upload" class="btn">☁ Upload Sketch</a>
+    </div>
+    <div class="footer">
+        CLASSIFIED SYSTEM • AUTHORIZED ACCESS ONLY
+    </div>
+</div>
+</body>
+</html>

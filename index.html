@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Sketch</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #001f3f, #000814);
+    color: white;
+}
+
+/* MAIN CARD */
+.card {
+    background: rgba(30, 41, 59, 0.95);
+    padding: 45px;
+    border-radius: 18px;
+    width: 460px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px rgba(59,130,246,0.25);
+    border: 1px solid rgba(77,163,255,0.2);
+}
+
+/* ICON */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(59,130,246,0.08);
+    box-shadow: 0 0 30px rgba(59,130,246,0.5);
+}
+
+.icon {
+    font-size: 32px;
+    color: #4da3ff;
+}
+
+/* TITLE */
+h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* LABEL */
+.label {
+    text-align: left;
+    font-size: 14px;
+    color: #a8bcd9;
+    margin: 15px 0 8px;
+}
+
+/* FILE INPUT */
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #2d3b50;
+    color: white;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 20px rgba(59,130,246,0.7);
+}
+
+/* DIVIDER */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: #7f93b7;
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 0 10px;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 1px solid #4da3ff;
+    color: #4da3ff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #4da3ff;
+    color: white;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 25px;
+    font-size: 11px;
+    color: #5c6b8a;
+}
+</style>
+</head>
+<body>
+<div class="card">
+    <div class="icon-circle">
+        <div class="icon">☁</div>
+    </div>
+    <h1>Upload Your Sketch</h1>
+    <form action="/match" method="POST" enctype="multipart/form-data">
+        <div class="label">Choose a sketch file:</div>
+        <input type="file" name="sketch" required>
+        <button type="submit">⬆ Upload & Compare</button>
+    </form>
+    <div class="divider">OR</div>
+    <a href="/" class="back-btn">← Back to Home</a>
+    <div class="footer">
+        CLASSIFIED SYSTEM - AUTHORIZED ACCESS ONLY
+    </div>
+</div>
+</body>
+</html>

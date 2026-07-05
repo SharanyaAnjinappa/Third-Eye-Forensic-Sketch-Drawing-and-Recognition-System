@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>No Match Found</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    background: radial-gradient(circle at top, #021c3a, #000814);
+    color: white;
+}
+
+.card {
+    background: rgba(20, 40, 70, 0.9);
+    padding: 40px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(59,130,246,0.3);
+}
+
+img {
+    width: 200px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #ff4d4d;
+}
+
+p {
+    color: #9bbcff;
+}
+
+.btn {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 10px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+<div class="card">
+    <img src="{{ url_for('static', filename='uploads/' + sketch) }}">
+    <h2>❌ No Match Found</h2>
+    <p>The system could not find a similar face.</p>
+    <a href="/upload" class="btn">Try Another Sketch</a>
+</div>
+</body>
+</html>

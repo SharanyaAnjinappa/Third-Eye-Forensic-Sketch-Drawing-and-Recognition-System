@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Verify OTP</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #001f3f, #000814);
+    color: white;
+}
+
+.card {
+    background: rgba(30, 41, 59, 0.95);
+    padding: 40px;
+    border-radius: 16px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(59,130,246,0.2);
+}
+
+.icon-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(59,130,246,0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 25px rgba(59,130,246,0.25);
+}
+
+.icon {
+    font-size: 34px;
+    color: #4da3ff;
+}
+
+h2 { margin: 10px 0; }
+
+.subtitle {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #9bbcff;
+    margin-bottom: 20px;
+}
+
+.email-text {
+    font-size: 13px;
+    color: #a8bcd9;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: #2d3b50;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: grey;
+    cursor: not-allowed;
+}
+
+.timer {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #7f93b7;
+}
+
+.divider {
+    margin: 20px 0;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+.footer {
+    font-size: 10px;
+    color: #5c6b8a;
+}
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.toast {
+    background: #e6f9ec;
+    color: #1b5e20;
+    padding: 12px 25px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translate(-50%, -20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+</style>
+</head>
+
+<body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="toast-container">
+      {% for message in messages %}
+        <div class="toast">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<div class="card">
+
+    <div class="icon-circle">
+        <div class="icon">🛡</div>
+    </div>
+
+    <h2>CriminalSketch Pro</h2>
+    <div class="subtitle">LAW ENFORCEMENT FACE COMPOSITE SYSTEM</div>
+
+    <div class="email-text">
+        Verification code sent to {{ email }}
+    </div>
+    <form method="POST" action="/verify">
+        <input type="text" name="otp" placeholder="Enter 6-digit code" required>
+
+        <button type="submit" id="verifyBtn">Verify Credentials</button>
+    </form>
+    <div class="timer" id="timerText">
+        Code expires in 60s
+    </div>
+    <div class="divider"></div>
+    <div class="footer">
+        CLASSIFIED SYSTEM - UNAUTHORIZED ACCESS PROHIBITED
+    </div>
+</div>
+<script>
+let time = 60;
+const timer = document.getElementById("timerText");
+const button = document.getElementById("verifyBtn");
+
+const countdown = setInterval(() => {
+    time--;
+
+    if (time > 0) {
+        timer.innerText = "Code expires in " + time + "s";
+    } else {
+        clearInterval(countdown);
+        timer.innerText = "OTP Expired ❌";
+        button.disabled = true;
+    }
+}, 1000);
+setTimeout(() => {
+    const toast = document.querySelector(".toast-container");
+    if (toast) {
+        toast.style.display = "none";
+    }
+}, 3000);
+</script>
+
+</body>
+</html>
